@@ -1,0 +1,96 @@
+package de.htw_berlin.mysupps.model;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+
+
+@Entity
+public class Supplement {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    private String name;
+    private String category;
+    private double dosage;
+    private int stock;
+    private String intakeTime;
+    private String notes;
+
+    public Supplement() {
+
+    }
+    public Supplement(String name) {
+
+        this.name = name;
+    }
+
+    public Supplement(String name, String category, double dosage, int stock, String intakeTime, String notes) {
+
+        this.name = name;
+        this.category = category;
+        this.dosage = dosage;
+        this.stock = stock;
+        this.intakeTime = intakeTime;
+        this.notes = notes;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public double getDosage() {
+        return dosage;
+    }
+
+    public void setDosage(double dosage) {
+        this.dosage = dosage;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
+    public String getIntakeTime() {
+        return intakeTime;
+    }
+
+    public void setIntakeTime(String intakeTime) {
+        this.intakeTime = intakeTime;
+    }
+
+    public String getNotes() {
+        return notes;
+    }
+
+    public void setNotes(String notes) {
+        this.notes = notes;
+    }
+
+}
