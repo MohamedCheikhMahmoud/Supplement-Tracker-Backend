@@ -2,7 +2,6 @@
 
 ## Team-Mitglieder
 - Mohammad Cheikh Mahmoud
-- Taha Ciftci
 
 ## Übungsgruppe / Dozent
 Zug 1, Gruppe 1  
