@@ -10,7 +10,7 @@ COPY --chown=gradle:gradle . /home/gradle/src
 WORKDIR /home/gradle/src
 
 # Gradle Build ausführen
-RUN gradle build --no-daemon
+RUN ./gradlew build --no-daemon
 
 # Projektinformationen
 LABEL org.name="Mohammad Cheikh Mahmoud"
