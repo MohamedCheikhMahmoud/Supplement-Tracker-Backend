@@ -1,11 +1,13 @@
 package de.htw_berlin.mysupps.controller;
 
 import de.htw_berlin.mysupps.model.Supplement;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+@CrossOrigin(origins = "*")
 @RestController
 
 public class SupplementController {
