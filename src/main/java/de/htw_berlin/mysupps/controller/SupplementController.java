@@ -39,4 +39,9 @@ public class SupplementController {
 
         return supplementRepository.save(supplement);
     }
+
+    @DeleteMapping("/supplements/{id}")
+    public void deleteSupplement(@PathVariable Long id) {
+        supplementRepository.deleteById(id);
+    }
 }
