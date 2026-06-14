@@ -21,10 +21,12 @@ public class Supplement {
     private Boolean taken;
 
     public Supplement() {
+        this.taken = false;
     }
 
     public Supplement(String name) {
         this.name = name;
+        this.taken = false;
     }
 
     public Supplement(String name, String category, double dosage, int stock,
@@ -94,11 +96,11 @@ public class Supplement {
         this.notes = notes;
     }
 
-    public boolean isTaken() {
+    public Boolean getTaken() {
         return taken;
     }
 
-    public void setTaken(boolean taken) {
+    public void setTaken(Boolean taken) {
         this.taken = taken;
     }
 }

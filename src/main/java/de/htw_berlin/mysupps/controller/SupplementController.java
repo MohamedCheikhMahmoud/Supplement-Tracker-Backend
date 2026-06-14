@@ -35,7 +35,7 @@ public class SupplementController {
         Supplement supplement = supplementRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Supplement nicht gefunden"));
 
-        supplement.setTaken(!supplement.isTaken());
+        supplement.setTaken(!Boolean.TRUE.equals(supplement.getTaken()));
 
         return supplementRepository.save(supplement);
     }
