@@ -1,13 +1,13 @@
 package de.htw_berlin.mysupps.model;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
-
+import jakarta.persistence.Id;
 
 @Entity
 public class Supplement {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -18,23 +18,24 @@ public class Supplement {
     private int stock;
     private String intakeTime;
     private String notes;
+    private boolean taken;
 
     public Supplement() {
-
     }
-    public Supplement(String name) {
 
+    public Supplement(String name) {
         this.name = name;
     }
 
-    public Supplement(String name, String category, double dosage, int stock, String intakeTime, String notes) {
-
+    public Supplement(String name, String category, double dosage, int stock,
+                      String intakeTime, String notes) {
         this.name = name;
         this.category = category;
         this.dosage = dosage;
         this.stock = stock;
         this.intakeTime = intakeTime;
         this.notes = notes;
+        this.taken = false;
     }
 
     public Long getId() {
@@ -93,4 +94,11 @@ public class Supplement {
         this.notes = notes;
     }
 
+    public boolean isTaken() {
+        return taken;
+    }
+
+    public void setTaken(boolean taken) {
+        this.taken = taken;
+    }
 }

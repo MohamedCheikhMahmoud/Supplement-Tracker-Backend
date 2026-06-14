@@ -26,6 +26,17 @@ public class SupplementController {
 
     @PostMapping("/supplements")
     public Supplement createSupplement(@RequestBody Supplement supplement) {
+        supplement.setTaken(false);
+        return supplementRepository.save(supplement);
+    }
+
+    @PutMapping("/supplements/{id}/toggle")
+    public Supplement toggleTaken(@PathVariable Long id) {
+        Supplement supplement = supplementRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Supplement nicht gefunden"));
+
+        supplement.setTaken(!supplement.isTaken());
+
         return supplementRepository.save(supplement);
     }
 }
