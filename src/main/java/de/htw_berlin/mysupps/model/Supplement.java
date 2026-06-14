@@ -18,7 +18,7 @@ public class Supplement {
     private int stock;
     private String intakeTime;
     private String notes;
-    private boolean taken;
+    private Boolean taken;
 
     public Supplement() {
     }
