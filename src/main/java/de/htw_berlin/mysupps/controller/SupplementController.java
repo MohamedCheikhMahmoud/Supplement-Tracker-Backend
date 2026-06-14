@@ -1,16 +1,18 @@
 package de.htw_berlin.mysupps.controller;
 
 import de.htw_berlin.mysupps.model.Supplement;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
+import de.htw_berlin.mysupps.repository.SupplementRepository;
+import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin(origins = "*")
 @RestController
-
 public class SupplementController {
+
+    private final SupplementRepository supplementRepository;
+
+    public SupplementController(SupplementRepository supplementRepository) {
+        this.supplementRepository = supplementRepository;
+    }
 
     @GetMapping
     public String test() {
@@ -18,14 +20,12 @@ public class SupplementController {
     }
 
     @GetMapping("/supplements")
-    public List<Supplement> getAllSupplements() {
-
-        return List.of(
-                new Supplement("Vitamin D", "Vitamin", 1000, 30, "Morgens", "Täglich einnehmen"),
-                new Supplement("Creatin", "Sport", 5, 50, "Nach dem Training", "Mit Wasser"),
-                new Supplement("Omega 3", "Fettsäuren", 2, 40, "Abends", "Mit Mahlzeit"),
-                new Supplement("Magnesium", "Mineralstoff", 400, 20, "Abends", "Vor dem Schlafen")
-        );
+    public Iterable<Supplement> getAllSupplements() {
+        return supplementRepository.findAll();
     }
 
+    @PostMapping("/supplements")
+    public Supplement createSupplement(@RequestBody Supplement supplement) {
+        return supplementRepository.save(supplement);
+    }
 }
